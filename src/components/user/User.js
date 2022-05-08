@@ -1,9 +1,7 @@
-export default function User({item, filteredUsers}) {
+export default function User({item}) {
     return (
         <div>
-            {filteredUsers.map(item => (
-                <p>item.nick_name</p>
-            ))}
+            {item.nick_name} - {item.email} - {item.password}
         </div>
     );
 }

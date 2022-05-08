@@ -1,8 +1,6 @@
 import './SearchBar.css';
-import {useState} from "react";
 
 const SearchBar = ({setValue}) => {
-
     const onSearchChange = (event) => {
         setValue(event.target.value);
     }
