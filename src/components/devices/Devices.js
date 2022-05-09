@@ -5,7 +5,6 @@ import Footer from "../footer/Footer";
 import {useDispatch, useSelector} from "react-redux";
 
 export default function Devices() {
-
     const state = useSelector(state => {
         const {device, filter} = state;
         return {device, filter}
@@ -31,6 +30,7 @@ export default function Devices() {
     //     }
     //     return devices;
     // }
+
 
     const paginationHandler = (num) => {
         setPage(page + num);
