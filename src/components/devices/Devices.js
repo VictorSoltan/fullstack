@@ -3,40 +3,40 @@ import {getDevice} from "../../services/device.service";
 import Device from "../device/Device";
 import Footer from "../footer/Footer";
 import {useDispatch, useSelector} from "react-redux";
+import {useSearchParams} from "react-router-dom";
 
 export default function Devices() {
     const state = useSelector(state => {
-        const {device, filter} = state;
-        return {device, filter}
+        const {device} = state;
+        return {device}
     })
     const dispatch = useDispatch();
 
-    const {devices, name} = state.device;
+    const {devices} = state.device;
 
     const [page, setPage] = useState(1);
 
     useEffect(() => {
-        getDevice(page, 5, 2, 8500, "mob").then(value => {
+        getDevice(page, 5, 2, 8500).then(value => {
             dispatch({type: "FETCH_DEVICES", payload: value.data});
         });
-    }, [page, name]);
+    }, [page]);
 
-    // const orderBy = (devices, price) => {
-    //     if (price === 'asc') {
-    //         return [...devices].sort((a, b) => (a.price > b.price ? 1 : -1));
-    //     }
-    //     if (price === 'desc') {
-    //         return [...devices].sort((a, b) => (a.price > b.price ? -1 : 1));
-    //     }
-    //     return devices;
-    // }
+    const [searchParams, setSearchParams] = useSearchParams();
+
+    const searchTerm = searchParams.get('name') || '';
 
     const paginationHandler = (num) => {
         setPage(page + num);
     };
 
-    const findDevices = (name) => {
-        dispatch({type: "SEARCH_DEVICE", payload: name});
+    const handleSearch = event => {
+        const name = event.target.value;
+        if (name) {
+            setSearchParams({name});
+        } else {
+            setSearchParams({});
+        }
     }
 
     return (
@@ -44,13 +44,17 @@ export default function Devices() {
             <div className="search">
                 <div>
                     <input className="searcher" placeholder="Я ищу сегодня..."
-                           onChange={findDevices}/>
-                    <button className="searchButton" onClick={findDevices}>Find device</button>
+                           value={searchTerm} onChange={handleSearch}/>
+
+                    <button className="searchButton">Find device</button>
                 </div>
             </div>
 
             {
-                devices.map(value => <Device item={value} key={value.id}/>)
+                devices
+                    .filter(device => device.name.toLowerCase().includes(searchTerm.toLowerCase()))
+                    .map(value => <Device item={value} key={value.id}/>)
+
             }
 
             <Footer
@@ -63,3 +67,12 @@ export default function Devices() {
 
 }
 
+// const orderBy = (devices, price) => {
+//     if (price === 'asc') {
+//         return [...devices].sort((a, b) => (a.price > b.price ? 1 : -1));
+//     }
+//     if (price === 'desc') {
+//         return [...devices].sort((a, b) => (a.price > b.price ? -1 : 1));
+//     }
+//     return devices;
+// }
