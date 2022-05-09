@@ -31,7 +31,6 @@ export default function Devices() {
     //     return devices;
     // }
 
-
     const paginationHandler = (num) => {
         setPage(page + num);
     };
