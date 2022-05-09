@@ -6,6 +6,7 @@ import {Layout} from "./components/Layot/Layot";
 import Devices from "./components/devices/Devices";
 import Auth from "./components/auth/Auth";
 import Basket from "./components/basket/Basket";
+import Registration from "./components/auth/Registration";
 
 export default function App() {
     return (
@@ -15,6 +16,7 @@ export default function App() {
                     <Route path="/" element={<Layout/>}>
                         <Route index element={<Home/>}/>
                         <Route path="auth" element={<Auth/>}/>
+                        <Route path="registration" element={<Registration/>}/>
                         <Route path="devices" element={<Devices/>}/>
                         <Route path="shop" element={<Shop/>}/>
                         <Route path="users" element={<Users/>}/>

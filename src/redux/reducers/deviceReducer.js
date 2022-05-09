@@ -8,8 +8,8 @@ export const deviceReducer = (state = initialState, action) => {
             return {...state, devices: [...action.payload]};
         case "CLEAR_STORE":
             return {...state, devices: []};
-        case "SEARCH_DEVICE":
-            return action.payload;
+        // case "SEARCH_DEVICE":
+        //     return {...state, devices: [...action.payload]};
         default:
             return state;
     }

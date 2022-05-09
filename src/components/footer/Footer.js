@@ -1,7 +1,7 @@
 import React from "react";
 import './Footer.css';
 
-const Footer = ({ page, paginationHandler}) => {
+const Footer = ({ page, paginationHandler, totalPages}) => {
     return (
         <footer>
             <button disabled={page <= 1} onClick={() => {
@@ -11,7 +11,7 @@ const Footer = ({ page, paginationHandler}) => {
 
             {page}
 
-            <button onClick={() => {
+            <button disabled={page >= totalPages} onClick={() => {
                 paginationHandler(1)
             }}>next
             </button>
