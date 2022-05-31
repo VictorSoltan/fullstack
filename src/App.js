@@ -1,29 +1,28 @@
-import Users from "./components/users/Users";
+import {Users, Devices, Header, DeviceDetails, Registration} from "./components";
 import {Routes, Route, BrowserRouter as Router} from 'react-router-dom';
-import Home from "./pages/Home";
-import Shop from "./pages/Shop";
-import {Layout} from "./components/Layot/Layot";
-import Devices from "./components/devices/Devices";
-import Auth from "./components/auth/Auth";
-import Basket from "./components/basket/Basket";
-import Registration from "./components/auth/Registration";
+import {Shop} from "./pages/Shop";
+import Login from "./components/auth/Login";
+import './index.css';
+import {CartBlock} from "./components/cartBlock/CartBlock";
 
-export default function App() {
+const App = () =>  {
     return (
         <>
             <Router>
                 <Routes>
-                    <Route path="/" element={<Layout/>}>
-                        <Route index element={<Home/>}/>
-                        <Route path="auth" element={<Auth/>}/>
+                    <Route path="/" element={<Header/>}>
+                        <Route path="auth" element={<Login/>}/>
                         <Route path="registration" element={<Registration/>}/>
                         <Route path="devices" element={<Devices/>}/>
                         <Route path="shop" element={<Shop/>}/>
                         <Route path="users" element={<Users/>}/>
-                        <Route path="basket" element={<Basket/>}/>
+                        <Route path="basket" element={<CartBlock/>}/>
+                        <Route path={'/devices/:_id'} element={<DeviceDetails/>}/>
                     </Route>
                 </Routes>
             </Router>
         </>
     );
 }
+
+export default App;

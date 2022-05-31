@@ -1,17 +1,18 @@
 import {useEffect, useState} from "react";
-import {getDevice} from "../../services/device.service";
+import {getDevice} from "../../services/axios/device.service";
 import Device from "../device/Device";
 import Footer from "../footer/Footer";
 import {useDispatch, useSelector} from "react-redux";
 import {useSearchParams} from "react-router-dom";
+import {DeviceForm} from "../deviceForm/DeviceForm";
+import {SearchBar} from "../searchBar/SearchBar";
 
-export default function Devices() {
+const Devices = () => {
     const state = useSelector(state => {
         const {device} = state;
         return {device}
-    })
+    });
     const dispatch = useDispatch();
-
     const {devices} = state.device;
 
     const [page, setPage] = useState(1);
@@ -22,13 +23,13 @@ export default function Devices() {
         });
     }, [page]);
 
-    const [searchParams, setSearchParams] = useSearchParams();
-
-    const searchTerm = searchParams.get('name') || '';
-
     const paginationHandler = (num) => {
         setPage(page + num);
     };
+
+    const [searchParams, setSearchParams] = useSearchParams();
+
+    const searchTerm = searchParams.get('name') || '';
 
     const handleSearch = event => {
         const name = event.target.value;
@@ -41,19 +42,13 @@ export default function Devices() {
 
     return (
         <div>
-            <div className="search">
-                <div>
-                    <input className="searcher" placeholder="Я ищу сегодня..."
-                           value={searchTerm} onChange={handleSearch}/>
-
-                    <button className="searchButton">Find device</button>
-                </div>
-            </div>
+            {/*<DeviceForm/>*/}
+            <SearchBar searchTerm={searchTerm} handleSearch={handleSearch}/>
 
             {
                 devices
                     .filter(device => device.name.toLowerCase().includes(searchTerm.toLowerCase()))
-                    .map(value => <Device item={value} key={value.id}/>)
+                    .map(value => <Device item={value} key={value.id} devices={value}/>)
 
             }
 
@@ -64,8 +59,9 @@ export default function Devices() {
 
         </div>
     );
-
 }
+
+export {Devices};
 
 // const orderBy = (devices, price) => {
 //     if (price === 'asc') {

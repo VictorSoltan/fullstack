@@ -1,17 +1,14 @@
-import './SearchBar.css';
-
-const SearchBar = ({setValue}) => {
-    const onSearchChange = (event) => {
-        setValue(event.target.value);
-    }
+const SearchBar = ({searchTerm, handleSearch}) => {
     return (
-        <form className="search">
-            <input className="searcher" placeholder="Я ищу сегодня..."
-                   onChange={onSearchChange}/>
-            <button className="searchButton" placeholder="Search"></button>
-        </form>
+        <div className="search">
+            <div>
+                <input className="searcher" placeholder="Я ищу сегодня..."
+                       value={searchTerm} onChange={handleSearch}/>
 
+                <button className="searchButton">Find device</button>
+            </div>
+        </div>
     )
 }
 
-export default SearchBar;
+export {SearchBar};

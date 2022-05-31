@@ -1,13 +1,13 @@
 import {useEffect, useState} from "react";
-import User from "../user/User";
-import {getUsers} from "../../services/user.service";
+import {User} from "./user/User";
+import {getUsers} from "../../services/axios/user.service";
 import './Users.css';
 
-export default function Users() {
+const Users = () => {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
-        getUsers().then(value => setUsers([...value]))
+        getUsers().then(value => setUsers([...value.data]))
     }, []);
 
     return (
@@ -20,3 +20,5 @@ export default function Users() {
         </div>)
 
 }
+
+export {Users};

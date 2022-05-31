@@ -1,7 +1,14 @@
-export default function Device({item}) {
+import {NavLink} from "react-router-dom";
+import {GameBuy} from "../gameBuy/GameBuy";
+
+export default function Device({item, devices}) {
+    const {type, brand, name, price} = item;
     return (
         <div>
-            <b>{item.type}</b> - {item.brand} - {item.name} {item.price}
+            <NavLink to={{pathname: '/devices/' + item._id}}>
+                {name} <b>{type}</b> -- {brand} -- {price}
+            </NavLink>
+            <GameBuy device={devices}/>
         </div>
     );
 }

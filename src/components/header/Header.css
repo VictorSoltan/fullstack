@@ -2,6 +2,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0;
+    margin-bottom: 30px;
     background-color: greenyellow;
+}
+
+.wrapper {
+    display: flex;
+}
+
+.header_cart-btn-wrapper {
+    justify-content: flex-end;
 }
