@@ -6,3 +6,6 @@ export * from './deviceDetails/deviceDetails';
 export * from './header/Header';
 export * from './auth/Registration';
 export * from './gameBuy/GameBuy';
+export * from './cartBlock/CartBlock';
+export * from './orderPage/OrderPage';
+export * from './auth/Login';

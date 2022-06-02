@@ -2,7 +2,7 @@ import {Button, Card, Container, Row} from "react-bootstrap";
 import './Authorization.css';
 import {useState} from "react";
 import Input from "../input/Input";
-import {registration} from "../../redux/actions/user";
+import {registration} from "../../redux/actions/authReducers";
 
 const Registration = () => {
     const [email, setEmail] = useState('');

@@ -21,10 +21,9 @@ const Header = () => {
                 {!isAuth && <NavLink to="/auth">Login</NavLink>}
                 {!isAuth && <NavLink to="/registration">Registration</NavLink>}
                 {isAuth && <div onClick={() => dispatch(logout())}>Выход</div>}
-                
-                <NavLink to="/basket">
+                <div className="wrapper header_cart-btn-wrapper">
                     <CartBlock/>
-                </NavLink>
+                </div>
             </header>
             <Outlet/>
         </>

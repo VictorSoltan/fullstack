@@ -1,22 +1,34 @@
 import {Button} from "react-bootstrap";
 import './CartMenu.css';
 import {CartItem} from "./cartBlock/CartItem";
+import {useSelector} from "react-redux";
 
-export const CartMenu = (items, totalprice, makeOrder) => {
+export const CartMenu = ({onClick}) => {
+    const state = useSelector(state => {
+        const {cart} = state;
+        return {cart}
+    });
+
+    const {itemsInCart} = state.cart;
+    const totalPrice = itemsInCart.reduce((acc, device) => acc += device.price, 0);
+
     return (
         <div className="cart-menu">
             <div className="cart_menu_devices_list">
-                {items.length > 0
-                    ? items.map(device => <CartItem key={device.title} price={device.price} title={device.title}/>)
+                {itemsInCart.length > 0
+                    ? itemsInCart.map((device) => (
+                        <CartItem key={device.title} price={device.price}
+                                                      title={device.title} _id={device._id}/>
+                    ))
                     : 'Корзина пуста'}
             </div>
-            {items.length > 0 ? (
+            {itemsInCart.length > 0 ? (
                 <div className="cart-menu_arrange">
                     <div className="cart-menu_total-price">
                         <span>Итого:</span>
-                    {/*    <span>{calcTotalPrice(items)} uah</span>*/}
+                            <span>{totalPrice} uah</span>
                     </div>
-                    <Button type="primary" size="m" onClick={makeOrder}>
+                    <Button type="primary" size="m" onClick={onClick}>
                         Оформить заказ
                     </Button>
                 </div>

@@ -3,9 +3,9 @@ import {getDevice} from "../../services/axios/device.service";
 import Device from "../device/Device";
 import Footer from "../footer/Footer";
 import {useDispatch, useSelector} from "react-redux";
-import {useSearchParams} from "react-router-dom";
-import {DeviceForm} from "../deviceForm/DeviceForm";
-import {SearchBar} from "../searchBar/SearchBar";
+import {SortButton} from "../sortButton/SortButton";
+import './Devices.css';
+import {useSortDevices} from "../../hooks/useSortDevices";
 
 const Devices = () => {
     const state = useSelector(state => {
@@ -15,10 +15,12 @@ const Devices = () => {
     const dispatch = useDispatch();
     const {devices} = state.device;
 
+    // const {isDescSort, setIsDescSort, sortedDevices} = useSortDevices(devices || []);
+
     const [page, setPage] = useState(1);
 
     useEffect(() => {
-        getDevice(page, 5, 2, 8500).then(value => {
+        getDevice(page, 8, 2, 8500).then(value => {
             dispatch({type: "FETCH_DEVICES", payload: value.data});
         });
     }, [page]);
@@ -27,36 +29,22 @@ const Devices = () => {
         setPage(page + num);
     };
 
-    const [searchParams, setSearchParams] = useSearchParams();
-
-    const searchTerm = searchParams.get('name') || '';
-
-    const handleSearch = event => {
-        const name = event.target.value;
-        if (name) {
-            setSearchParams({name});
-        } else {
-            setSearchParams({});
-        }
-    }
-
     return (
         <div>
-            {/*<DeviceForm/>*/}
-            <SearchBar searchTerm={searchTerm} handleSearch={handleSearch}/>
 
-            {
-                devices
-                    .filter(device => device.name.toLowerCase().includes(searchTerm.toLowerCase()))
-                    .map(value => <Device item={value} key={value.id} devices={value}/>)
+            {/*<SortButton className="sortBtn"*/}
+            {/*            onClick={() => setIsDescSort(!isDescSort)}>*/}
+            {/*    Сортировать по цене {`${isDescSort ? "+" : "-"}`}*/}
+            {/*</SortButton>*/}
 
+            {devices
+                .map(value => <Device item={value} key={value._id} devices={value}/>)
             }
 
             <Footer
                 totalPages={devices.length}
                 page={page}
                 paginationHandler={paginationHandler}/>
-
         </div>
     );
 }

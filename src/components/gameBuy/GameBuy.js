@@ -7,14 +7,12 @@ const GameBuy = ({device}) => {
         return {cart, device}
     });
     const {itemsInCart} = state.cart;
-    // const {devices} = state.device;
 
     const isItemInCart = itemsInCart.some((item) => item._id === device._id);
     const dispatch = useDispatch();
 
     const handleClick = (e) => {
         e.stopPropagation();
-        console.log(e.message);
         if (isItemInCart) {
             dispatch({type: "deleteItemFromCart", payload: device._id})
         } else {
@@ -28,7 +26,6 @@ const GameBuy = ({device}) => {
             <Button type={isItemInCart ? 'secondary' : 'primary'} onClick={handleClick}>
                 {isItemInCart ? "Убрать из корзины" : "В корзину"}
             </Button>
-
         </div>
     )
 }

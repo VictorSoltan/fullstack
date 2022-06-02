@@ -3,7 +3,7 @@ import {NavLink} from "react-router-dom";
 import {useState} from "react";
 import Input from "../input/Input";
 import {useDispatch, useSelector} from "react-redux";
-import {login} from "../../redux/actions/user";
+import {login} from "../../redux/actions/authReducers";
 
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -43,4 +43,4 @@ const Login = () => {
     )
 };
 
-export default Login;
+export {Login};

@@ -1,11 +1,10 @@
-import {Users, Devices, Header, DeviceDetails, Registration} from "./components";
+import {Users, Devices, Header, DeviceDetails, Registration, CartBlock, OrderPage, Login} from "./components";
 import {Routes, Route, BrowserRouter as Router} from 'react-router-dom';
 import {Shop} from "./pages/Shop";
-import Login from "./components/auth/Login";
 import './index.css';
-import {CartBlock} from "./components/cartBlock/CartBlock";
+import Search from "./components/search/Search";
 
-const App = () =>  {
+const App = () => {
     return (
         <>
             <Router>
@@ -17,7 +16,9 @@ const App = () =>  {
                         <Route path="shop" element={<Shop/>}/>
                         <Route path="users" element={<Users/>}/>
                         <Route path="basket" element={<CartBlock/>}/>
-                        <Route path={'/devices/:_id'} element={<DeviceDetails/>}/>
+                        <Route path='/devices/:_id' element={<DeviceDetails/>}/>
+                        <Route path="/order" element={<OrderPage/>}/>
+                        <Route path="/search" element={<Search/>}/>
                     </Route>
                 </Routes>
             </Router>

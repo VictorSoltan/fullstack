@@ -5,7 +5,9 @@ const initialState = {
 export const deviceReducer = (state = initialState, action) => {
     switch (action.type) {
         case "FETCH_DEVICES":
-            return {...state, devices: [...action.payload.data]};
+            return {
+                ...state,
+                devices: [...action.payload.data]};
         case "CLEAR_STORE":
             return {...state, devices: []};
         // case "SEARCH_DEVICE":
@@ -14,3 +16,5 @@ export const deviceReducer = (state = initialState, action) => {
             return state;
     }
 }
+
+export const setRepos = (device) => ({type: "SET_DEVICE", payload: device})
