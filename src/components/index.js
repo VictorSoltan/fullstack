@@ -4,6 +4,7 @@ export * from './users/user/User';
 export * from './users/Users';
 export * from './deviceDetails/deviceDetails';
 export * from './header/Header';
+export * from './footer/Footer';
 export * from './auth/Registration';
 export * from './gameBuy/GameBuy';
 export * from './cartBlock/CartBlock';

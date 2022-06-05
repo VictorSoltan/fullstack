@@ -28,7 +28,7 @@ export const CartMenu = ({onClick}) => {
                         <span>Итого:</span>
                             <span>{totalPrice} uah</span>
                     </div>
-                    <Button type="primary" size="m" onClick={onClick}>
+                    <Button type="primary" size="m">
                         Оформить заказ
                     </Button>
                 </div>

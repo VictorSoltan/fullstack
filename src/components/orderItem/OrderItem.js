@@ -21,7 +21,7 @@ const OrderItem = ({device}) => {
                 <AiOutlineCloseCircle
                     size={25}
                     className="cart-item_delete-icon"
-                    onclick={handleClick}
+                    onClick={handleClick}
                 />
             </div>
         </div>

@@ -19,4 +19,4 @@ const Footer = ({ page, paginationHandler, totalPages}) => {
     )
 };
 
-export default Footer;
+export {Footer};

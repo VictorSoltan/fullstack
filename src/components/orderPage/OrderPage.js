@@ -1,5 +1,4 @@
 import {useSelector} from "react-redux";
-import {calcTotalPrice} from "../../cart.utils/cart.utils";
 import {OrderItem} from "../orderItem/OrderItem";
 import {Button} from "react-bootstrap";
 
@@ -19,7 +18,7 @@ const OrderPage = () => {
     return (
         <div className="order-page">
             <div className="order-page_left">
-                {itemsInCart.map(device => <OrderItem device={device}/>)}
+                {itemsInCart.map(device => <OrderItem key={device._id} device={device}/>)}
             </div>
             <div className="order-page_right">
                 <div className="order-page_total-price">

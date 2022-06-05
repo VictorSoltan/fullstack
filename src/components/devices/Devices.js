@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import {getDevice} from "../../services/axios/device.service";
-import Device from "../device/Device";
-import Footer from "../footer/Footer";
+import {Device} from "../device/Device";
+import {Footer} from "../footer/Footer";
 import {useDispatch, useSelector} from "react-redux";
 import {SortButton} from "../sortButton/SortButton";
 import './Devices.css';
@@ -31,7 +31,6 @@ const Devices = () => {
 
     return (
         <div>
-
             {/*<SortButton className="sortBtn"*/}
             {/*            onClick={() => setIsDescSort(!isDescSort)}>*/}
             {/*    Сортировать по цене {`${isDescSort ? "+" : "-"}`}*/}
@@ -50,6 +49,9 @@ const Devices = () => {
 }
 
 export {Devices};
+
+
+
 
 // const orderBy = (devices, price) => {
 //     if (price === 'asc') {

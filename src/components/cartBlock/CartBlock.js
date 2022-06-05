@@ -1,9 +1,9 @@
 import {useSelector} from "react-redux";
-import {BiCartAlt} from 'react-icons/bi';
 import {ItemsInCart} from "../itemsInCart/ItemsInCart";
 import {useCallback, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import './CartBlock.css';
+import {BiCartAlt} from "react-icons/all";
 
 const CartBlock = () => {
     const [isCartMenuVisible, setIsCartMenuVisible] = useState(false);
@@ -23,6 +23,7 @@ const CartBlock = () => {
     return (
         <div className="cart-block" onClick={handleGoToOrderClick}>
             <ItemsInCart quantity={itemsInCart.length}/>
+
             <BiCartAlt
                 className="cart-icon"
                 color="white"

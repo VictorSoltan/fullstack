@@ -3,7 +3,7 @@ import {NavLink} from "react-router-dom";
 import {useState} from "react";
 import Input from "../input/Input";
 import {useDispatch, useSelector} from "react-redux";
-import {login} from "../../redux/actions/authReducers";
+import {login} from "../../redux/actions/authActions";
 
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -19,7 +19,7 @@ const Login = () => {
 
     return (
         <Container className="contain">
-            <Card style={{width: 600}} classname="p-5">
+            <Card style={{width: 600}} className="p-5">
                 <h2 className="m-auto">Авторизация</h2>
                 <Form className="authForm">
                     <Input value={email} setValue={setEmail} type="text"

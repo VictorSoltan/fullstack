@@ -3,6 +3,8 @@ const LOGOUT = "LOGOUT";
 
 const initialState = {
     currentUser: {},
+    email: null,
+    nick_name: null,
     isAuth: false
 };
 
@@ -15,7 +17,7 @@ export const authReducer = (state = initialState, action) => {
                 isAuth: true
             };
         case "LOGOUT":
-            localStorage.removeItem('token');
+            console.log('access_token');
             return {
                 ...state,
                 currentUser: {},
@@ -25,6 +27,11 @@ export const authReducer = (state = initialState, action) => {
             return state;
     }
 }
+
+export const setAuthUserData = ( email, nick_name, isAuth) => ({
+     type: "SET_USER_DATA", payload: { email, nick_name, isAuth}
+    });
+
 
 export const setUser = user => ({type: SET_USER, payload: user});
 export const logout = () => ({type: LOGOUT});

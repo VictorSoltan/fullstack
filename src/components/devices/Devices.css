@@ -15,6 +15,12 @@
 }
 
 .sortBtn {
-    font-size: 24px;
+    display: flex;
+    width: 70px;
+    height: 29px;
+}
+
+.sortBtn p {
+    font-size: 10px
 }
 
