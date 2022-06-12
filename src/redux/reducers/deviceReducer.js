@@ -16,5 +16,3 @@ export const deviceReducer = (state = initialState, action) => {
             return state;
     }
 }
-
-export const setRepos = (device) => ({type: "SET_DEVICE", payload: device})

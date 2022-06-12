@@ -1,27 +1,23 @@
+import React from 'react';
 import {NavLink, Outlet} from "react-router-dom";
 import './Header.css';
-import {useDispatch, useSelector} from "react-redux";
-// import {logout} from "../../redux/reducers/authReducer";
+// import {useDispatch, useSelector} from "react-redux";
 import {CartBlock} from "../cartBlock/CartBlock";
-import {logout} from "../../redux/actions/authActions";
 
-const Header = (props) => {
-    const state = useSelector(state => {
-        const {auth} = state;
-        return {auth}
-    });
+const Header = () => {
+   const isAuthN = localStorage.getItem('access_token');
 
-    const {isAuth} = state.auth;
     // const dispatch = useDispatch();
     return (
         <>
             <header className="content">
-                <NavLink to="/devices">Device</NavLink>
-                <NavLink to="/shop">Shop</NavLink>
+                <NavLink to="/devices">Devices</NavLink>
                 <NavLink to="/users">Users</NavLink>
-                {!isAuth && <NavLink to="/auth">Login</NavLink>}
-                {!isAuth && <NavLink to="/registration">Registration</NavLink>}
-                {isAuth && <div onClick={logout()}>Выход</div>}
+                {!isAuthN && <NavLink to="/auth">Login</NavLink>}
+                {!isAuthN && <NavLink to="/registration">Registration</NavLink>}
+                {isAuthN && <div>
+                    <NavLink to="/logout">Logout</NavLink>
+                </div>}
                 <div className="wrapper header_cart-btn-wrapper">
                     <CartBlock/>
                 </div>
@@ -32,3 +28,4 @@ const Header = (props) => {
 }
 
 export {Header};
+

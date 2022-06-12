@@ -1,46 +1,53 @@
-import {Button, Card, Container, Form} from "react-bootstrap";
-import {NavLink} from "react-router-dom";
 import {useState} from "react";
-import Input from "../input/Input";
-import {useDispatch, useSelector} from "react-redux";
-import {login} from "../../redux/actions/authActions";
+import {login} from "../../services/axios/auth.service";
+import {Navigate} from "react-router-dom";
 
 const Login = () => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const dispatch = useDispatch();
-
-    const state = useSelector(state => {
-        const {auth} = state;
-        return {auth}
+    const [values, setValues] = useState({
+        email: '',
+        password: ''
     });
 
-    const {isAuth} = state.auth;
+    const [isSuccess, setSuccess] = useState(false);
+
+    const handleChange = (type) => (e) => {
+        setValues({...values, [type]: e.target.value});
+    }
+
+    const formSubmit = async (e) => {
+        e.preventDefault();
+        const newVar = await login(values);
+
+        if (newVar.access_token) {
+            setSuccess(true);
+        }
+
+        localStorage.setItem('access_token', newVar.access_token)
+        localStorage.setItem('refresh_token', newVar.refresh_token)
+    }
+    if (isSuccess) {
+        console.log('login is ok');
+        return (
+            <Navigate to="/checkout"/>
+        )
+    }
 
     return (
-        <Container className="contain">
-            <Card style={{width: 600}} className="p-5">
-                <h2 className="m-auto">Авторизация</h2>
-                <Form className="authForm">
-                    <Input value={email} setValue={setEmail} type="text"
-                           placeholder="Введите ваш email..."
-                    />
-                    <Input value={password} setValue={setPassword} type="password"
-                           placeholder="Введите ваш пароль..."
-                    />
-                    { !isAuth &&
-                    <Button
-                        className="mt-3 align-self-end" variant={"outline-success"}
-                        onClick={() => dispatch(login(email, password))}>
-                        Войти
-                    </Button>}
-                    { !isAuth && <div>
-                        Нет аккаунта? <NavLink to="/registration">Зарегестрируйся!</NavLink>
-                    </div>}
-                </Form>
-            </Card>
-        </Container>
+        <form>
+            <input type="email"
+                   onChange={handleChange('email')}
+            />
+            <br/>
+            <input type="text"
+                   onChange={handleChange('password')}/>
+            <br/>
+
+            <input type="submit"
+                   onClick={formSubmit} />
+
+        </form>
+
     )
-};
+}
 
 export {Login};

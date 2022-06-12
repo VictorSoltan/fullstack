@@ -18,3 +18,5 @@ const Catalog = () => {
         </Container>
     )
 }
+
+export {Catalog};

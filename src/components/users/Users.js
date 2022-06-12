@@ -14,7 +14,7 @@ const Users = () => {
         <div>
             <div>
                 {
-                    users.map(value => <User key={value.id} item={value}/>)
+                    users.map(value => <User key={value._id} item={value}/>)
                 }
             </div>
         </div>)
