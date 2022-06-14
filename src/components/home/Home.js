@@ -12,7 +12,7 @@ const Home = () => {
     const state = useSelector(state => {
         const {category} = state;
         return {category};
-    })
+    });
 
     const {categoryId, sortBy} = state.category;
 

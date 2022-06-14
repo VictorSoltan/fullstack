@@ -11,7 +11,7 @@ const OrderItem = ({device}) => {
     return (
         <div className="order-item">
             <div className="order-item_cover">
-                {/*<DeviceCover device={device.image}/>*/}
+                {/*<DeviceCover singleDevice={singleDevice.image}/>*/}
             </div>
             <div className="order-item_title">
                 <span>{device.name}</span>

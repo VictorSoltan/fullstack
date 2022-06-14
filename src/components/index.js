@@ -1,5 +1,5 @@
-export * from './devices/Devices';
-export * from './device/Device';
+export * from '../unusedComponents/devices/Devices';
+export * from './singleDevice/Device';
 export * from './users/user/User';
 export * from './users/Users';
 export * from './deviceDetails/deviceDetails';

@@ -1,6 +1,6 @@
 // import {useEffect, useState} from "react";
-// import {getDevice} from "../../services/axios/device.service";
-// import {Device} from "../device/Device";
+// import {getDevice} from "../../services/axios/singleDevice.service";
+// import {Device} from "../singleDevice/Device";
 // import {Footer} from "../footer/Footer";
 // import {useDispatch, useSelector} from "react-redux";
 // // import {SortButton} from "../sortButton/SortButton";
@@ -8,11 +8,11 @@
 //
 // const Devices = () => {
 //     const state = useSelector(state => {
-//         const {device} = state;
-//         return {device}
+//         const {singleDevice} = state;
+//         return {singleDevice}
 //     });
 //     const dispatch = useDispatch();
-//     const {devices} = state.device;
+//     const {devices} = state.singleDevice;
 //
 //     // const {isDescSort, setIsDescSort, sortedDevices} = useSortDevices(devices || []);
 //
