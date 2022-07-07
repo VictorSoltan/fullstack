@@ -1,5 +1,6 @@
 const initialState = {
-    categoryId: null,
+    brand: null,
+    type: null,
     sortBy: {
         type: 'популярности',
         sortProperty: 'rating'
@@ -11,7 +12,12 @@ export const categoryReducer = (state = initialState, action) => {
         case 'SET_CATEGORY':
             return {
                 ...state,
-                categoryId: action.payload
+                brand: action.payload
+            };
+        case 'SET_TYPE':
+            return {
+                ...state,
+              type: action.payload
             };
         case 'SET_SORT_BY':
             return {

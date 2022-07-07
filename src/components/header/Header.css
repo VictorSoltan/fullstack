@@ -2,8 +2,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 30px;
+    /*margin-bottom: 30px;*/
     background-color: greenyellow;
+    position: fixed;
+    height: 70px;
+    width: 100%
 }
 
 .wrapper {
@@ -12,4 +15,9 @@
 
 .header_cart-btn-wrapper {
     justify-content: flex-end;
+}
+
+.mrs {
+    display: flex;
+    grid-column-gap: 28px;
 }

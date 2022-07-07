@@ -1,4 +1,4 @@
-const Category = ({onClickCategory}) => {
+const FindByBrand = ({onClickCategory}) => {
     const categories = ['Samsung', 'Lenovo', 'Apple', 'LG'];
 
     return (
@@ -16,4 +16,4 @@ const Category = ({onClickCategory}) => {
     )
 }
 
-export {Category};
+export {FindByBrand};

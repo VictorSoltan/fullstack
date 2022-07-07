@@ -8,3 +8,7 @@ export const setSortBy = ({type, sortProperty}) => ({
     payload: {type, sortProperty},
 });
 
+export const setTypeDevice = (catIndex) => ({
+    type: 'SET_TYPE',
+    payload: catIndex
+});

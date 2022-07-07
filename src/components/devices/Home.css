@@ -1,8 +1,11 @@
 .myClass {
     display: flex;
     margin-left: 20px;
-    padding: 25px 25px 25px 25px;
+    padding: 80px 25px 25px 25px;
     flex-direction: column;
+}
+.padding {
+    padding-top: 60px;
 }
 
 .inputForSearch {

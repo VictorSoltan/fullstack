@@ -1,20 +1,24 @@
 import {useEffect, useState} from "react";
 // import {Button} from "react-bootstrap";
-import {Footer, Device, Sort, Category} from "../../components";
+import {Footer, Device, Sort, FindByBrand} from "../../components";
 import {useDispatch, useSelector} from "react-redux";
-import {setCategory, setSortBy} from "../../redux/actions/filtersAction";
+import {setCategory, setSortBy, setTypeDevice} from "../../redux/actions/filtersAction";
 import React from 'react';
 import {getDevice} from "../../services/axios/device.service";
+import qs from "qs";
+import {useNavigate} from "react-router-dom";
+import {FindByCategory} from "../categories/FindByCategory";
 
-const Home = () => {
+const Home = (props) => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const state = useSelector(state => {
         const {category} = state;
         return {category};
     });
 
-    const {categoryId, sortBy} = state.category;
+    const {brand, type, sortBy} = state.category;
 
     const [searchText, setSearchText] = useState("");
     const [devices, setDevices] = useState([]);
@@ -25,9 +29,25 @@ const Home = () => {
     const order = sortBy.sortProperty.includes('+') ? 'desc' : 'asc';
 
     useEffect(() => {
-        getDevice(searchText, page, limit, sort, order, categoryId)
+        getDevice(searchText, page, limit, sort, order, brand, type)
             .then(value => setDevices(value.data.data))
-    }, [searchText, page, limit, sort, order, categoryId]);
+    }, [searchText, page, limit, sort, order, brand, type]);
+
+    useEffect(() => {
+        if (window.location.search) {
+            const params = qs.parse(window.location.search.substring(1));
+        }
+    }, []);
+
+    useEffect(() => {
+        const queryString = qs.stringify({
+            page,
+            sort,
+            brand
+        });
+
+        navigate(`?${queryString}`);
+    }, [page, sort, brand]);
 
     const paginationHandler = (num) => {
         setPage(page + num);
@@ -35,6 +55,10 @@ const Home = () => {
 
     const onChangeCategory = React.useCallback((id) => {
         dispatch(setCategory(id));
+    }, [dispatch]);
+
+    const onChangeType = React.useCallback((id) => {
+        dispatch(setTypeDevice(id));
     }, [dispatch]);
 
     const onSelectSortType = React.useCallback((type) => {
@@ -49,7 +73,8 @@ const Home = () => {
 
                 <Sort onChangeSort={(i) => onSelectSortType(i)} activeSortType={sortBy.sortProperty}/>
             </div>
-            <Category value={categoryId} onClickCategory={onChangeCategory}/>
+            <FindByBrand value={brand} onClickCategory={onChangeCategory}/>
+            <FindByCategory value={type} onClickCategory={onChangeType}/>
             <div className="myClass">
                 {
                     devices.map(value => (

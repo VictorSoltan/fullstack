@@ -1,6 +1,6 @@
 import {Button, Card, Container, Row} from "react-bootstrap";
 import './Authorization.css';
-import {useState} from "react";
+import React, {useState} from "react";
 import Input from "../input/Input";
 import {registration} from "../../redux/actions/authActions";
 
@@ -9,7 +9,7 @@ const Registration = () => {
     const [password, setPassword] = useState('');
 
     return (
-        <Container className="registration">
+        <Container className="registration padding">
             <Card className="card">
                 <div className="registration_header">Регистрация</div>
                 <Input type="text" value={email} setValue={setEmail}

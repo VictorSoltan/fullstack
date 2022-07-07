@@ -12,4 +12,4 @@ export * from './orderPage/OrderPage';
 export * from './auth/Login';
 export * from './auth/Logout';
 export * from './sorting/Sort';
-export * from './categories/Category';
+export * from './categories/FindByBrand';

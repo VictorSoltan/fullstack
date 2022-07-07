@@ -11,7 +11,7 @@ const Users = () => {
     }, []);
 
     return (
-        <div>
+        <div className="padding">
             <div>
                 {
                     users.map(value => <User key={value._id} item={value}/>)

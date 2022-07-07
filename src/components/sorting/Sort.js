@@ -3,19 +3,19 @@ import {useState} from "react";
 const Sort = ({onChangeSort, activeSortType}) => {
     const [open, setOpen] = useState(false);
     const list = [
-        {name: 'популярности', sortProperty: 'rating'},
-        {name: 'популярности по возрастанию', sortProperty: '+rating'},
-        {name: 'цене', sortProperty: 'price'},
-        {name: 'цене по возрастанию', sortProperty: '+price'},
-        {name: 'алфавиту', sortProperty: 'name'},
-        {name: 'алфавиту по возрастанию', sortProperty: '+name'}
+        {name: 'рейтингу', sortProperty: 'rating'},
+        // {name: 'популярности по возрастанию', sortProperty: '+rating'},
+        {name: 'від дорогих до дешевих', sortProperty: 'price'},
+        {name: 'від дешевих до дорогих', sortProperty: '+price'},
+        {name: 'алфавиту (from Z to A)', sortProperty: 'name'},
+        {name: 'алфавиту (from A to Z)', sortProperty: '+name'}
     ];
     const activeLabel = list.find((obj) => obj.sortProperty === activeSortType).name;
 
     const onClickListItem = (i) => {
         onChangeSort(i);
         setOpen(false)
-    }
+    };
 
     return (
         <div>
