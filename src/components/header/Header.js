@@ -34,8 +34,8 @@ const Header = () => {
         console.log('login is ok');
     }
 
-
     const isAuthN = localStorage.getItem('access_token');
+
     const [show, setShow] = useState(false);
 
     const handleClose = () => {
@@ -64,9 +64,8 @@ const Header = () => {
                         <Nav className="mrs">
                             <NavLink to="/devices">Devices</NavLink>
                             <NavLink to="/users">Users</NavLink>
-                            <NavLink to="/slider">Slider</NavLink>
-                            {/*{!isAuthN && <NavLink to="/auth">Login</NavLink>}*/}
-                            {!isAuthN && <NavLink to="/registration">Registration</NavLink>}
+                            {!isAuthN && <NavLink to="/auth">Login</NavLink>}
+                             <NavLink to="/registration">Registration</NavLink>
                             {isAuthN && <div>
                                 <NavLink to="/logout">Logout</NavLink>
                             </div>}

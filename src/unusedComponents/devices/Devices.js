@@ -1,6 +1,6 @@
 // import {useEffect, useState} from "react";
-// import {getDevice} from "../../services/axios/singleDevice.service";
-// import {Device} from "../singleDevice/Device";
+// import {getDevice} from "../../services/axios/product.service";
+// import {Product} from "../product/Product";
 // import {Footer} from "../footer/Footer";
 // import {useDispatch, useSelector} from "react-redux";
 // // import {SortButton} from "../sortButton/SortButton";
@@ -8,13 +8,13 @@
 //
 // const Devices = () => {
 //     const state = useSelector(state => {
-//         const {singleDevice} = state;
-//         return {singleDevice}
+//         const {product} = state;
+//         return {product}
 //     });
 //     const dispatch = useDispatch();
-//     const {devices} = state.singleDevice;
+//     const {products} = state.product;
 //
-//     // const {isDescSort, setIsDescSort, sortedDevices} = useSortDevices(devices || []);
+//     // const {isDescSort, setIsDescSort, sortedDevices} = useSortDevices(products || []);
 //
 //     const [page, setPage] = useState(1);
 //
@@ -36,12 +36,12 @@
 //             {/*    Сортировать по цене {`${isDescSort ? "+" : "-"}`}*/}
 //             {/*</SortButton>*/}
 //
-//             {devices
-//                 .map(value => <Device item={value} key={value._id} devices={value}/>)
+//             {products
+//                 .map(value => <Product item={value} key={value._id} products={value}/>)
 //             }
 //
 //             <Footer
-//                 totalPages={devices.length}
+//                 totalPages={products.length}
 //                 page={page}
 //                 paginationHandler={paginationHandler}/>
 //         </div>
@@ -53,12 +53,12 @@
 //
 //
 //
-// // const orderBy = (devices, price) => {
+// // const orderBy = (products, price) => {
 // //     if (price === 'asc') {
-// //         return [...devices].sort((a, b) => (a.price > b.price ? 1 : -1));
+// //         return [...products].sort((a, b) => (a.price > b.price ? 1 : -1));
 // //     }
 // //     if (price === 'desc') {
-// //         return [...devices].sort((a, b) => (a.price > b.price ? -1 : 1));
+// //         return [...products].sort((a, b) => (a.price > b.price ? -1 : 1));
 // //     }
-// //     return devices;
+// //     return products;
 // // }

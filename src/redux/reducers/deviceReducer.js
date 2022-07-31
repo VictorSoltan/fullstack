@@ -11,7 +11,7 @@ export const deviceReducer = (state = initialState, action) => {
         case "CLEAR_STORE":
             return {...state, devices: []};
         // case "SEARCH_DEVICE":
-        //     return {...state, devices: [...action.payload]};
+        //     return {...state, products: [...action.payload]};
         default:
             return state;
     }

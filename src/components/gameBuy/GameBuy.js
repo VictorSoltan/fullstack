@@ -1,3 +1,4 @@
+import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {Button} from "react-bootstrap";
 
@@ -13,12 +14,21 @@ const GameBuy = ({device}) => {
 
     const handleClick = (e) => {
         e.stopPropagation();
+        // const json = JSON.stringify(state.itemsInCart);
         if (isItemInCart) {
             dispatch({type: "deleteItemFromCart", payload: device._id})
         } else {
-            dispatch({type: "setItemInCart", payload: device})
+            dispatch({type: "setItemInCart", payload: device});
         }
     }
+
+    // useEffect(() => {
+    //     if (isMounted.current) {
+    //         const json = JSON.stringify(state.itemsInCart);
+    //         localStorage.setItem('cart', json);
+    //     }
+    //     isMounted.current = true;
+    // }, [itemsInCart]);
 
     return (
         <div className="game-buy">

@@ -1,5 +1,5 @@
 // const initialState = {
-//     devices: [],
+//     products: [],
 //     currentPage: 1,
 //     pagesCount: 0,
 //     total_count: 0

@@ -1,10 +1,30 @@
 import {useEffect, useState} from "react";
 import {useParams} from 'react-router-dom';
 import {getDeviceById} from "../../services/axios/device.service";
+import '../products/Products.css';
 
 const DeviceDetails = () => {
     const {_id} = useParams();
     const [deviceDetails, setDeviceDetails] = useState(null);
+
+    // const InfoContainer = styled.div`
+    //   flex: 1;
+    //   padding: 0px 50px;
+    //   ${mobile({padding: '10px'})}
+    // `;
+    //
+    // const Title = styled.h1`
+    //   font-weight: 200;
+    // `;
+    //
+    // const Desc = styled.p`
+    //   margin: 20px 0px;
+    // `;
+    // const Wrapper = styled.div`
+    //   padding: 50px;
+    //   display: flex;
+    //   ${mobile({padding: '10px', flexDirection: 'column'})}
+    // `;
 
     useEffect(() => {
         getDeviceById(_id)
@@ -12,7 +32,7 @@ const DeviceDetails = () => {
     }, [_id]);
 
     return (
-        <div>
+        <div className="classForDetailsDevice">
             {
                 deviceDetails && (
                     <>
@@ -20,6 +40,7 @@ const DeviceDetails = () => {
                         <p>{deviceDetails.price}</p>
                         <p>{deviceDetails.brand}</p>
                         <p>{deviceDetails.type}</p>
+                       <div> {deviceDetails.image} </div>
                     </>
                 )
             }

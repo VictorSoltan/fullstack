@@ -17,7 +17,7 @@ const CartBlock = () => {
     const totalPrice = itemsInCart.reduce((acc, device) => acc += device.price, 0);
     const handleGoToOrderClick = useCallback(() => {
         setIsCartMenuVisible(false);
-        navigate('/order');
+        navigate('/cart');
     }, [navigate]);
 
     return (

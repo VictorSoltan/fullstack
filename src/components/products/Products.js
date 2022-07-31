@@ -1,6 +1,5 @@
 import {useEffect, useState} from "react";
-// import {Button} from "react-bootstrap";
-import {Footer, Device, Sort, FindByBrand} from "../../components";
+import {Footer, Product, Sort, FindByBrand} from "../../components";
 import {useDispatch, useSelector} from "react-redux";
 import {setCategory, setSortBy, setTypeDevice} from "../../redux/actions/filtersAction";
 import React from 'react';
@@ -8,30 +7,38 @@ import {getDevice} from "../../services/axios/device.service";
 import qs from "qs";
 import {useNavigate} from "react-router-dom";
 import {FindByCategory} from "../categories/FindByCategory";
+// import Sliders from "../slider/Slider";
+import {mobile} from '../../responsive';
 
-const Home = (props) => {
+import styled from 'styled-components';
+
+const Products = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
+    const Filter = styled.div`
+      //margin: 20px;
+      ${mobile({width: "0px 20px", display: "flex", flexDirection: "column"})}
+    `;
+
     const state = useSelector(state => {
-        const {category} = state;
-        return {category};
+        const {category, cart} = state;
+        return {category, cart};
     });
 
     const {brand, type, sortBy} = state.category;
 
-    const [searchText, setSearchText] = useState("");
     const [devices, setDevices] = useState([]);
     const [page, setPage] = useState(1);
-    const [limit] = useState(7);
+    const [limit] = useState(8);
 
     const sort = sortBy.sortProperty.replace('+', '');
     const order = sortBy.sortProperty.includes('+') ? 'desc' : 'asc';
 
     useEffect(() => {
-        getDevice(searchText, page, limit, sort, order, brand, type)
+        getDevice(page, limit, sort, order, brand, type)
             .then(value => setDevices(value.data.data))
-    }, [searchText, page, limit, sort, order, brand, type]);
+    }, [ page, limit, sort, order, brand, type]);
 
     useEffect(() => {
         if (window.location.search) {
@@ -67,34 +74,38 @@ const Home = (props) => {
 
     return (
         <div className="myClass">
-            <div className="myClass">
-                <input type="text" onChange={(e) => setSearchText(e.target.value)}
-                       className="inputForSearch"/>
+            <div className="sideBar">
+                <Filter>
+                    <Sort onChangeSort={(i) => onSelectSortType(i)} activeSortType={sortBy.sortProperty}/>
+                </Filter>
 
-                <Sort onChangeSort={(i) => onSelectSortType(i)} activeSortType={sortBy.sortProperty}/>
+                <Filter>
+                    <FindByBrand value={brand} onClickCategory={onChangeCategory}/>
+                </Filter>
+                <Filter>
+                    <FindByCategory value={type} onClickCategory={onChangeType}/>
+                </Filter>
             </div>
-            <FindByBrand value={brand} onClickCategory={onChangeCategory}/>
-            <FindByCategory value={type} onClickCategory={onChangeType}/>
-            <div className="myClass">
+            <div className="contentMy">
                 {
                     devices.map(value => (
-                            <Device key={value._id} id={value._id} item={value} devices={value}/>
+                            <Product key={value._id} id={value._id} item={value} devices={value}/>
                         )
                     )}
-
-                {searchText && !devices &&
-                <h2>No devices found</h2>}
-
-                <Footer
-                    totalPages={devices}
-                    page={page}
-                    paginationHandler={paginationHandler}/>
             </div>
+
+
+            {/*<Sliders/>*/}
+
+            <Footer
+                totalPages={devices}
+                page={page}
+                paginationHandler={paginationHandler}/>
         </div>
     )
 }
 
-export default Home;
+export default Products;
 
 
 // {/*<SortButton className="sortBtn"*/}

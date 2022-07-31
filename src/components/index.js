@@ -1,5 +1,5 @@
 export * from '../unusedComponents/devices/Devices';
-export * from './singleDevice/Device';
+export * from './product/Product';
 export * from './users/user/User';
 export * from './users/Users';
 export * from './deviceDetails/deviceDetails';
@@ -8,7 +8,7 @@ export * from './footer/Footer';
 export * from './auth/Registration';
 export * from './gameBuy/GameBuy';
 export * from './cartBlock/CartBlock';
-export * from './orderPage/OrderPage';
+export * from './cartPage/CartPage';
 export * from './auth/Login';
 export * from './auth/Logout';
 export * from './sorting/Sort';

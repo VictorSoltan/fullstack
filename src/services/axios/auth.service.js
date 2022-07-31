@@ -12,7 +12,7 @@ export const login = async (data) => {
 
 export const logout = async () => {
     try {
-        const response = await axios.post('http://localhost:5000/auth/logout', {}, {
+        const response = await axios.post('https://shop-with-products.herokuapp.com/auth/logout', {}, {
             headers: {
                 'Authorization': localStorage.getItem('access_token')
             }

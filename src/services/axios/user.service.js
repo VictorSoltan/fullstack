@@ -1,9 +1,9 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-    baseURL: 'http://localhost:5000/'
+    baseURL: 'https://shop-with-products.herokuapp.com'
 });
 
-const getUsers = async () => await axiosInstance.get('users');
+const getUsers = async () => await axiosInstance.get('/users');
 
 export {getUsers};
