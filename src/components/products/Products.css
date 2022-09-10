@@ -1,70 +1,92 @@
 .myClass {
-    display: flex;
+    /*display: flex;*/
     /*margin-left: 20px;*/
-    flex-wrap: wrap;
-    padding: 20px;
-    justify-content: space-around;
-    margin-top: 36px;
+    /*flex-wrap: wrap;*/
+    /*padding: 20px;*/
+    /*justify-content: space-around;*/
+    /*margin-top: 59px;*/
 }
 
 .myClass2 {
     display: flex;
-    margin-left: 20px;
-    margin-top: 80px;
-    flex-direction: column;
+    /*margin-left: 20px;*/
+    /*flex-wrap: wrap;*/
+    /*padding: 20px;*/
+    /*justify-content: space-around;*/
+    margin-top: 59px;
 }
 
 .padding {
     padding-top: 60px;
 }
-.searchDiv {
+
+.formSearch {
     display: flex;
-    width: 100%;
-    background-color: blue;
-    margin: 0 auto;
-    fixed: top;
+
+    /*vertical-align: top;*/
+    /*position: relative;*/
+    /*box-sizing: border-box;*/
 }
 
 .inputForSearch {
-    display: flex;
-    width: 880px;
-    height: 45px;
-    margin-left: 265px;
-    border-color: #442D85;
+    display: block;
+    outline: none;
+    margin-left: 105px;
+    border: 2px solid #222;
+    border-radius: 25px;
+    padding: 5px 100px 5px 30px;
     background-color: white;
+    margin-top: 8px;
+    width: 870px;
+}
+
+.inputForSearch:focus {
+    transform: scale(1.1, 1.1);
+    outline: none;
+    border: 2px solid orangered;
 }
 
 .buttonForSearch {
-    display: flex;
-    height: 18px;
-    width: 55px;
-    border-radius: 8px;
-    font-size: 11px;
+    display: inline-block;
+    position: absolute;
+    z-index: 9;
+    outline: none;
+    border: none;
+    background-color: #00f;
+    color: #fff;
+    padding: 10px 25px;
+    cursor: pointer;
+    align-items: center;
+    border-radius: 25px;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+.buttonForSearch:hover {
+    background: #f00;
 }
 
 .sideBar {
-    display: inline-block;
+    display: inline-flex;
+    flex-direction: column;
+    width: 16%;
+    height: 100%;
+    background-color: lightblue;
+    border-radius: 8px;
     font-size: 14px;
     padding: 10px;
-    box-sizing: border-box;
-}
-
-.sideBar {
-    width: 30%;
-    background-color: white;
 }
 
 .contentMy {
-    display: inline-block;
-    width: 70%;
+    display: inline-flex;
+    width: 84%;
     font-size: 14px;
-    padding: 10px;
+    flex-wrap: wrap
 }
 
 .contentMy > div {
-    display: inline-block;
     box-sizing: border-box;
-    width: 23%;
+    width: 33%;
 }
 
 .classForDetailsDevice {
@@ -72,3 +94,100 @@
     flex-flow: column;
     margin-top: 120px;
 }
+
+.imageProduct {
+    display: flex;
+    max-width: 120px;
+    size: auto;
+}
+
+.bg {
+    display: flex;
+    background-color: #442D85;
+    width: 200px;
+    height: 120px;
+    color: white;
+}
+
+.styleSlider {
+    width: 100%;
+    height: 160px;
+    padding: 30px;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.ccc {
+    display: flex;
+    width: 780px;
+    height: 38px;
+    font-size: 18px
+}
+
+.thirdPartOfHome {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 100px;
+}
+
+.thirdPartOfHome h1 {
+    font-size: 26px;
+    margin-left: 170px;
+}
+
+.imageSlider {
+    display: flex;
+    max-width: 80px;
+}
+
+.sortProperty {
+    display: inline;
+    float: right;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: inline-flex;
+    margin-top: 3px;
+    position: absolute;
+    z-index: 1;
+    background-color: #f1f1f1;
+    border-radius: 8px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.dropdown-content ul {
+    margin-left: 9px;
+    padding-left: 0;
+    margin-right: 9px;
+}
+
+.dropdown-content li {
+    list-style-type: none;
+    font-size: 12px;
+}
+
+.dropdown-content li:hover {
+    background-color: grey;
+}
+
+.ulWithBrandsAndTypes {
+    list-style-type: none;
+}
+
+.ulWithBrandsAndTypes li:hover {
+    background-color: blue;
+    color: white
+}
+
+i {
+    display: inline-block;
+    color: #f8e825;
+    border: 2px solid #f8e825;
+    /*background: #f8e825;*/
+    width: 11px;
+    height: 11px;
+}
+

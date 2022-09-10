@@ -1,84 +1,79 @@
 import {NavLink} from "react-router-dom";
-import {GameBuy} from "../gameBuy/GameBuy";
+import {ProductBuy} from "../productBuy/ProductBuy";
 import '../products/Products.css';
-import styles from './device_styles';
+import '../product/Product.css';
 import React from 'react';
-import Popup from "./Popup";
-import styled from "styled-components";
+import {Card} from 'react-bootstrap';
+import Rating from "../rating/Rating";
 
 const Product = ({item, devices, id}) => {
-    const {type, brand, name, rating, reviews, image} = item;
-    const [popupState, setPopupState] = React.useState(false);
+    const {type, brand, name, rating, price, image, numberReviews} = item;
 
-    const Info = styled.div`
-      width: 100%;
-      height: 100%;
-      //position: absolute;
-      top: 0;
-      left: 0;
-      //z-index: 3;
-      color: black;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      transition: all 0.5s ease;
-      cursor: pointer;
-    `;
+    function toDataUrl(url, callback) {
+        let xhr = new XMLHttpRequest();
+        xhr.onload = function () {
+            let reader = new FileReader();
+            reader.onloadend = function () {
+                callback(reader.result);
+            }
+            reader.readAsDataURL(xhr.response);
+        };
+        xhr.open('GET', url);
+        xhr.responseType = 'blob';
+        xhr.send();
+    }
 
-    const Container = styled.div`
-      flex: 1;
-      margin: 5px;
-      display: flex;
-      width: 33.33%;
-      align-items: center;
-      justify-content: center;
-      background-color: #f5fbfd;
-      position: relative;
-    `;
+    // toDataUrl('http://localhost:5000/static/image-1660508496717.png', function (dataUrl) {
+    //     console.log('Result:', dataUrl)
+    // });
+    const kartinka = toDataUrl(image, function (image) {
+        return image
+    })
+
+    function addProductView(_id, name, price, image, brand) {
+        let lastProducts = [];
+        try {
+            lastProducts = localStorage.getItem('last_products');
+            if (lastProducts == null)
+                lastProducts = [];
+            else
+                lastProducts = JSON.parse(lastProducts);
+        } catch (e) {
+            lastProducts = [];
+        }
+        lastProducts = lastProducts.filter(e => e.id !== _id);
+        lastProducts.push({
+            date: Date.now(),
+            id: _id,
+            name: name,
+            price: price,
+            image: kartinka,
+            brand: brand
+        });
+        localStorage.setItem('last_products', JSON.stringify(lastProducts.sort((c, n) =>
+            n.date - c.date).splice(0, 20)));
+    }
 
     return (
-        <Container>
-            <Info>
-                {popupState && <Popup id={id} popupState={popupState} setPopupState={setPopupState}/>}
+        <div className="productContainer">
+            <div className="productInfo" onClick={() => addProductView(item._id, item.name, item.price)}>
+                {/*{popupState && <Popup id={id} popupState={popupState} setPopupState={setPopupState}/>}*/}
 
                 <NavLink to={{pathname: '/devices/' + item._id}}>
-                    {/*<Image src={item.img}/>*/}
                     {name} <b>{type}</b> -- {brand}
+                    <b>{price}</b>
                     <br/>
                     <p>rating: {rating}</p>
-                    <img src={image} alt="img"/>
+                    {/*<img src={image} alt="img" className="imageProduct"/>*/}
                 </NavLink>
 
-                {reviews.length > 0 &&
-                <div className="reviews">
-                    <div style={{fontSize: 20}}>Отзывы</div>
-                    {reviews.map(review =>
-                        <div key={review._id} className="review" style={styles.review}>
-                            <div className="review_title" style={styles.review_title}>
-                                <div className="logo_user" style={styles.logo_user}>
-                                    {/*<img style={{height: "25px"}} src={logo_user} />*/}
-                                </div>
-                                <div className="review_nickName">{review.name}</div>
-                            </div>
-                            <div className="review_content">{review.comment}</div>
-                        </div>
-                    )}
-                </div>
-                }
-                {reviews.map(e => e.nick_name).indexOf(JSON.parse(localStorage.getItem("user")).nick_name) === -1 &&
-                <div>
-                    <div onClick={() => {
-                        setPopupState(true)
-                    }} device={id} className="addReview" style={styles.addReview}>
-                        Добавить отзыв
-                    </div>
-                </div>
-                }
+                {/*<Card.Text as='div'>*/}
+                {/*    <Rating value={rating} text={`${numberReviews} reviews`}/>*/}
+                {/*</Card.Text>*/}
 
-
-                <GameBuy key={devices._id} device={devices}/>
-            </Info>
-        </Container>
+            </div>
+            <ProductBuy key={devices._id} device={devices}/>
+        </div>
     );
 }
 

@@ -1,9 +1,8 @@
 const FindByCategory = ({onClickCategory}) => {
-    const categories = ['electronics', 'laptops', 'kitchen'];
+    const categories = ['electronics', 'laptops', 'phones'];
 
     return (
-        <div>
-            <ul>
+            <ul className="ulWithBrandsAndTypes">
                 {
                     categories.map((categoryName, index) => (
                             <li key={index}
@@ -13,7 +12,6 @@ const FindByCategory = ({onClickCategory}) => {
                         )
                     )}
             </ul>
-        </div>
     )
 }
 

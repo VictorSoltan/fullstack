@@ -14,7 +14,7 @@ const CartBlock = () => {
     });
 
     const {itemsInCart} = state.cart;
-    const totalPrice = itemsInCart.reduce((acc, device) => acc += device.price, 0);
+    // const totalPrice = itemsInCart.reduce((acc, device) => acc += device.price, 0);
     const handleGoToOrderClick = useCallback(() => {
         setIsCartMenuVisible(false);
         navigate('/cart');
@@ -29,9 +29,9 @@ const CartBlock = () => {
                 color="white"
                 size={25} onClick={() => setIsCartMenuVisible(!isCartMenuVisible)}
             />
-            {totalPrice > 0 ? (
-                    <span className="total-price">{totalPrice} uah</span>)
-                : null}
+            {/*{totalPrice > 0 ? (*/}
+            {/*        <span className="total-price">{totalPrice} uah</span>)*/}
+            {/*    : null}*/}
             {/*{isCartMenuVisible && <CartMenu/>} - мини корзина при наведении*/}
         </div>
     )

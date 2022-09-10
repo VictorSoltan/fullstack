@@ -28,11 +28,10 @@
     color: blue;
 }
 
-input {
-    border: none;
-    border-radius: 8px;
-    border-bottom: blue solid 2px;
-    background: transparent;
-    padding: 5px 10px;
-    margin: 10px 20px;
+.button {
+    cursor: pointer;
+}
+
+.button:hover {
+    color: white;
 }

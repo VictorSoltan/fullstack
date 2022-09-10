@@ -1,8 +1,16 @@
 import axios from "axios";
 
 export const instance = axios.create({
-    baseURL: 'http://localhost:5000/',
-    headers: {'authorization': localStorage.getItem("refresh_token") + " " + localStorage.getItem("access_token")}
+    baseURL: 'https://shop-with-products.herokuapp.com/',
+    headers: {
+        'authorization': localStorage.getItem("refresh_token") + " " + localStorage.getItem("access_token"),
+        "Accept": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "X-Requested-With": "XMLHttpRequest",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
+    },
+    credentials: 'include'
 });
 
 const getDevice = (page, limit, sort, order, brand, type) => {

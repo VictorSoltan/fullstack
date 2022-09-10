@@ -1,16 +1,18 @@
 import {combineReducers} from "redux";
-import {deviceReducer} from "./deviceReducer";
 import {userReducer} from "./userReducer";
 import {cartReducer} from "./deviceCartReducer";
 import {categoryReducer} from "./categoryReducer";
-import {searchReducer} from "./searchReducer";
+import {commentReducer} from './commentReducer';
+import {userLoginReducer} from "./authReducer";
+import {productDetailsReducer} from "./productDetailsReducer";
 
 const rootReducer = combineReducers({
-    device: deviceReducer,
     user: userReducer,
     cart: cartReducer,
     category: categoryReducer,
-    search: searchReducer
+    userLogin: userLoginReducer,
+    productDetails: productDetailsReducer,
+    productReviewCreate: commentReducer
 });
 
 export {rootReducer};

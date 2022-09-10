@@ -9,6 +9,17 @@ const initialState = {
 
 export const categoryReducer = (state = initialState, action) => {
     switch (action.type) {
+        case 'REMOVE_CATEGORIES':
+            return {
+                ...state,
+                brand: null,
+                type: null
+            };
+        case 'ALL_BRANDS':
+            return {
+                ...state,
+                brand: null
+            };
         case 'SET_CATEGORY':
             return {
                 ...state,

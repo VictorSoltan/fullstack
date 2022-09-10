@@ -9,7 +9,7 @@ const OrderItem = ({device}) => {
 
     const handleClick = () => {
         dispatch({type: "deleteItemFromCart", payload: device._id});
-    }
+    };
 
     const Product = styled.div`
       display: flex;
@@ -50,9 +50,6 @@ const OrderItem = ({device}) => {
                         <ProductName>
                             <b>Product:</b> {device.name}
                         </ProductName>
-                        <ProductBrand>
-                            <b>Brand:</b> {device.brand}
-                        </ProductBrand>
                         <ProductBrand>
                             <b>Price:</b> {device.price}
                         </ProductBrand>

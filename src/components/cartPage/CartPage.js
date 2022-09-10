@@ -1,4 +1,4 @@
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {OrderItem} from "../orderItem/OrderItem";
 import {Button} from "react-bootstrap";
 import styled from "styled-components";
@@ -12,12 +12,11 @@ const CartPage = () => {
         return {cart, device}
     });
 
+    const dispatch = useDispatch();
+
     const navigate = useNavigate();
 
     const {itemsInCart} = state.cart;
-    if (itemsInCart < 1) {
-        return <h1>Ваша корзина пуста</h1>
-    }
 
     const totalPrice = itemsInCart.reduce((acc, device) => acc += device.price, 0);
 
@@ -87,12 +86,25 @@ const CartPage = () => {
         navigate('/devices');
     };
 
+    if (itemsInCart < 1) {
+        return (
+            <div>
+                <Top>
+                    <TopButton onClick={backToShop}>Continue Shopping</TopButton>
+                </Top>
+                <h1>Сейчас хорошее время чтобы что то выбрать</h1>
+                <p>Ваша корзина пуста</p>
+            </div>
+        )
+    }
+
     return (
         <Container>
             <Wrapper>
                 <Title>Your bag</Title>
                 <Top>
                     <TopButton onClick={backToShop}>Continue Shopping</TopButton>
+                    <Button onClick={() => dispatch({type: "CLEAR_CART"})}>Clear cart</Button>
                 </Top>
                 <Bottom>
                     <Info className="order-page_left">

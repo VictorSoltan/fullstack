@@ -1,5 +1,5 @@
 import axios from "axios";
-import {logout} from "../../services/axios/auth.service";
+import {logout} from "../services/axios/auth.service";
 
 export const createOrder = (order) => async (dispatch, getState) => {
     try {

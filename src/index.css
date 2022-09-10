@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  height: 2000px;
+  height: 1080px;
 }
 
 code {
@@ -20,3 +20,28 @@ code {
   color: white;
 }
 
+li {
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+button {
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #f1f1f1;
+}
+
+.h22 {
+  font-size: 16px;
+}
+
+.h111 {
+  font-size: 17px;
+}
+
+p {
+  font-size: 11px;
+}

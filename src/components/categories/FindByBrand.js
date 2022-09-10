@@ -1,18 +1,16 @@
 const FindByBrand = ({onClickCategory}) => {
-    const categories = ['Samsung', 'Lenovo', 'Apple', 'LG'];
+    const categories = ['Samsung', 'Lenovo', 'Apple', 'LG', 'Xiaomi'];
 
     return (
-        <div>
-            <ul>
+            <ul className="ulWithBrandsAndTypes">
                 {categories.map((categoryName, index) => (
-                    <li key={index}
+                    <li className="findBy" key={index}
                     onClick={() => onClickCategory(categoryName)}>
                         {categoryName}
                     </li>
                     )
                 )}
             </ul>
-        </div>
     )
 }
 

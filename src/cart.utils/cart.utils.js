@@ -15,7 +15,3 @@ export const addItemToCart = (cartItems, cartItemToAdd) => {
 
 export const removeItemFromCart = (cartItems, _id) =>
     cartItems.filter(item => item._id !== _id);
-
-export const calcTotalPrice = (cartItems) => {
-    cartItems.reduce((acc, device) => acc += device.price, 0);
-}

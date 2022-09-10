@@ -16,12 +16,12 @@ const Search = () => {
     };
 
     return (
-        <div className="searchContainer">
-            <form>
-                <input type="text" onChange={inputHandler} className="inputForSearch"/>
-                <button type="submit" onClick={navigateFunction}>Search</button>
-            </form>
-        </div>
+        <form className="formSearch">
+            <input type="text" onChange={inputHandler} placeholder="Пошук" className="inputForSearch"/>
+            <div style={{"position": 'absolute', 'right': '289px'}}>
+                <button type="submit" onClick={navigateFunction} className="buttonForSearch">Search</button>
+            </div>
+        </form>
     )
 }
 

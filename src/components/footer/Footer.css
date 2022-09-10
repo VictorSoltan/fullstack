@@ -1,0 +1,61 @@
+.footerContainer {
+    display: flex;
+    flex-direction: column;
+    height: 350px;
+    background-color: grey;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footerApplication{
+    display: flex;
+    width: 100%;
+    height: 80px;
+    background-color: #f1f1f1;
+}
+
+.h11 {
+    display: flex;
+    height: 40px;
+    width: 100%;
+    margin-top: 19px;
+    margin-left: 21px;
+    font-size: 23px;
+}
+.img {
+    display: flex;
+    width: 30px;
+    height: 28px;
+    cursor: pointer;
+    margin-top: 12px;
+}
+
+.img:hover {
+    transition: 0.2s;
+}
+
+.divWithBrands {
+    display: flex;
+    grid-column-gap: 38px;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+.divThirdFooter {
+    display: flex;
+    width: 1310px;
+    position: absolute;
+    bottom: 0;
+    height: 60px;
+    grid-column-gap: 30px;
+    margin-left: 14px;
+}
+
+.divWithSocialNetworks{
+    display: flex;
+    position: absolute;
+    right: 0;
+    grid-column-gap: 38px;
+    margin-top: 10px;
+}

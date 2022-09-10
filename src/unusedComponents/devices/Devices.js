@@ -1,7 +1,7 @@
 // import {useEffect, useState} from "react";
 // import {getDevice} from "../../services/axios/product.service";
 // import {Product} from "../product/Product";
-// import {Footer} from "../footer/Footer";
+// import {Footer} from "../pagination/Footer";
 // import {useDispatch, useSelector} from "react-redux";
 // // import {SortButton} from "../sortButton/SortButton";
 // import './Devices.css';

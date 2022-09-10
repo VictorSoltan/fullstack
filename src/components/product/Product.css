@@ -1,0 +1,26 @@
+.productContainer {
+    flex: 1;
+    margin: 5px;
+    display: flex;
+    width: 33.33%;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5fbfd;
+    border-radius: 8px;
+    position: relative;
+    max-height: 400px;
+}
+
+.productInfo {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}

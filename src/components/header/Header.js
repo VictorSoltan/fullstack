@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
 import {NavLink, Outlet} from "react-router-dom";
-import {login} from "../../services/axios/auth.service";
+import {login, registration} from "../../redux/actions/authActions";
 import {CartBlock} from "../cartBlock/CartBlock";
 import {Container, Navbar, Nav, Modal, Form, Button} from 'react-bootstrap';
 import logo from '../typeBar/222.png';
+import {useDispatch} from "react-redux";
 // import '../../App.css';
 
 const Header = () => {
@@ -12,7 +13,7 @@ const Header = () => {
         password: ''
     });
 
-    const [isSuccess, setSuccess] = useState(false);
+    const dispatch = useDispatch();
 
     const handleChange = (type) => (e) => {
         setValues({...values, [type]: e.target.value});
@@ -20,19 +21,8 @@ const Header = () => {
 
     const formSubmit = async (e) => {
         e.preventDefault();
-        const newVar = await login(values);
-
-        if (newVar.access_token) {
-            setSuccess(true);
-        }
-
-        localStorage.setItem('access_token', newVar.access_token);
-        localStorage.setItem('refresh_token', newVar.refresh_token);
-        localStorage.setItem('user', JSON.stringify(newVar.user));
-    }
-    if (isSuccess) {
-        console.log('login is ok');
-    }
+        dispatch(login(values));
+    };
 
     const isAuthN = localStorage.getItem('access_token');
 

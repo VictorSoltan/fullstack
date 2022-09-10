@@ -2,7 +2,7 @@ const axios = require("axios");
 
 export const login = async (data) => {
     try {
-        const response = await axios.post('http://localhost:5000/auth/login', data);
+        const response = await axios.post('https://shop-with-products.herokuapp.com/auth/login', data);
 
         return response.data;
     } catch (e) {
