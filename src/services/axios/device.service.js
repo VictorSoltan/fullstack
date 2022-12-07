@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const instance = axios.create({
-    baseURL: 'https://shop-with-products.herokuapp.com/',
+    baseURL: 'https://electronic-shop-project.herokuapp.com/',
     headers: {
         'authorization': localStorage.getItem("refresh_token") + " " + localStorage.getItem("access_token"),
         "Accept": "application/json",
@@ -36,5 +36,4 @@ const deleteDeviceById = async (_id) =>
     await instance.delete(`/devices/${_id}`);
 
 export {getDevice, getDeviceById, postDevice, deleteDeviceById, addReview, searchDevice};
-
 

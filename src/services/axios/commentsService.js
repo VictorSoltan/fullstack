@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const instance = axios.create({
-    baseURL: 'http://localhost:5000/'});
+    baseURL: 'https://new-test-shop-app.herokuapp.com/'});
 
 const getComments = async () => {
     await instance.get('/api/reviews')

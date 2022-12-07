@@ -1,4 +1,3 @@
-export * from '../unusedComponents/devices/Devices';
 export * from './product/Product';
 export * from './products/Products';
 export * from './users/user/User';

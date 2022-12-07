@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {useParams} from 'react-router-dom';
 import '../products/Products.css';
-import {Row, Col, Image, ListGroup, Card, Button} from "react-bootstrap";
+import {Row, Col, Image, ListGroup} from "react-bootstrap";
 import {FaStar} from "react-icons/fa";
 import {useDispatch, useSelector} from "react-redux";
 import Loader from "../Loader";
@@ -47,7 +47,7 @@ const ProductDetails = () => {
         }
         dispatch(listProductsDetails(_id));
     }, [dispatch, successProductReview, _id]);
-    console.log(rating)
+
     const submitHandler = (e) => {
         e.preventDefault();
         dispatch(
@@ -88,10 +88,10 @@ const ProductDetails = () => {
                                         <ListGroup.Item>
                                             <h3>{product.name}</h3>
                                         </ListGroup.Item>
-                                        <ListGroup.Item>
-                                            <Rating value={product.rating} text={`${product.numberReviews} reviews`}/>
+                                        {/*<ListGroup.Item>*/}
+                                        {/*    <Rating value={product.rating} text={`${product.numberReviews} reviews`}/>*/}
 
-                                        </ListGroup.Item>
+                                        {/*</ListGroup.Item>*/}
                                         <ListGroup.Item>
                                             Price: {product.price}
                                         </ListGroup.Item>
@@ -145,19 +145,7 @@ const ProductDetails = () => {
                                     )
                                 })}
                             </div>
-                            <div>
-                                {/*<label htmlFor="rating">Rating</label>*/}
-                                {/*<select id="rating" value={rating}*/}
-                                {/*        onChange={(e) => setRating(Number(e.target.value))}>*/}
-                                {/*    <option value="">Select</option>*/}
-                                {/*    <option value="1">1- Bad</option>*/}
-                                {/*    <option value="2">2- Fair</option>*/}
-                                {/*    <option value="3">3- Good</option>*/}
-                                {/*    <option value="4">4- Very good</option>*/}
-                                {/*    <option value="5">5- Excelent</option>*/}
-                                {/*</select>*/}
-                                {/*</input>*/}
-                            </div>
+
                             <div>
                                 <label htmlFor="comment">Comment</label>
                                 <textarea

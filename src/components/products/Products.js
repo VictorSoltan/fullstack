@@ -118,13 +118,18 @@ const Products = () => {
 
             </div>
             <div className="thirdPartOfHome">
-                <Pagination
-                    totalPages={devices}
-                    page={page}
-                    paginationHandler={paginationHandler}/>
-                <h1>Последние пересмотренные товары</h1>
-                <Sliders key={lastProducts.date} lastProducts={lastProducts}/>
-
+                <div className="pagination2">
+                    <Pagination
+                        totalPages={devices}
+                        page={page}
+                        paginationHandler={paginationHandler}/>
+                </div>
+                <div className="myClass3">
+                    <h1>Переглянуті товари</h1>
+                    <div className="myClass2">
+                        <Sliders key={lastProducts.date} lastProducts={lastProducts}/>
+                    </div>
+                </div>
             </div>
 
             <Footer/>

@@ -2,9 +2,11 @@ import React, {useState} from 'react';
 import {NavLink, Outlet} from "react-router-dom";
 import {login, registration} from "../../redux/actions/authActions";
 import {CartBlock} from "../cartBlock/CartBlock";
-import {Container, Navbar, Nav, Modal, Form, Button} from 'react-bootstrap';
+import {Container, Navbar, Nav, Modal, Form, Button, Row} from 'react-bootstrap';
 import logo from '../typeBar/222.png';
 import {useDispatch} from "react-redux";
+import './Header.css'
+import Input from "../input/Input";
 // import '../../App.css';
 
 const Header = () => {
@@ -12,6 +14,10 @@ const Header = () => {
         email: '',
         password: ''
     });
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [nick_name, setNick_name] = useState('');
 
     const dispatch = useDispatch();
 
@@ -36,6 +42,16 @@ const Header = () => {
         setShow(true)
     };
 
+    const [show2, setShow2] = useState(false);
+
+    const handleClose2 = () => {
+        setShow2(false)
+    };
+
+    const handleShow2 = () => {
+        setShow2(true)
+    };
+
     return (
         <>
             <Navbar collapseOnSelect
@@ -50,21 +66,20 @@ const Header = () => {
                     </Navbar.Brand>
 
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" className="coloring"/>
-                    <Navbar.Collapse>
+                    <Navbar.Collapse className="mrs">
                         <Nav className="mrs">
-                            <NavLink to="/devices">Devices</NavLink>
-                            <NavLink to="/users">Users</NavLink>
-                            {!isAuthN && <NavLink to="/auth">Login</NavLink>}
-                             <NavLink to="/registration">Registration</NavLink>
+                            <NavLink className="NavLink"  to="/devices">Devices</NavLink>
+
                             {isAuthN && <div>
-                                <NavLink to="/logout">Logout</NavLink>
+                                <NavLink className="NavLink" to="/logout">Logout</NavLink>
                             </div>}
-                            {isAuthN && <NavLink to="/admin">
+                            {isAuthN && <NavLink className="NavLink" to="/admin">
                                 Admin page
                             </NavLink>}
+
                         </Nav>
                         <Nav>
-                            <Button variant="primary" className="mr-2" onClick={handleShow}>Log in</Button>
+                            <Button variant="primary" className="endPoint" onClick={handleShow}>Log in</Button>
                         </Nav>
                     </Navbar.Collapse>
 
@@ -91,6 +106,38 @@ const Header = () => {
                                 <Form.Group controlId="fromBasicCheckBox">
                                     <Form.Check type="checkbox" label="Remember me"/>
                                 </Form.Group>
+                            </Form>
+                            <Nav>
+                                <Button variant="primary" className="mr-2" onClick={handleShow2}>Registration</Button>
+                            </Nav>
+                            <input type="submit"
+                                   onClick={formSubmit}/>
+                        </Modal.Body>
+                    </Modal>}
+
+                    {<Modal show={show2} onHide={handleClose2}>
+                        <Modal.Header closeButton>
+                            <Modal.Title>Registration</Modal.Title>
+                        </Modal.Header>
+
+                        <Modal.Body>
+                            <Form>
+                                <Input type="text" value={nick_name} setValue={setNick_name}
+                                       placeholder="Ім'я"
+                                />
+                                <Input type="text" value={email} setValue={setEmail}
+                                       placeholder="Email"
+                                />
+                                <Input type="password" value={password} setValue={setPassword}
+                                       placeholder="Пароль"
+                                />
+                                <Row>
+                                    <Button
+                                        className="mt-3 align-self-end" variant={"outline-success"}
+                                        onClick={() => registration(email, password, nick_name)}>
+                                        Зареєструватися
+                                    </Button>
+                                </Row>
                             </Form>
 
                             <input type="submit"

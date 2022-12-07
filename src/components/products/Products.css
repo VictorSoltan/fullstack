@@ -1,19 +1,21 @@
-.myClass {
-    /*display: flex;*/
-    /*margin-left: 20px;*/
-    /*flex-wrap: wrap;*/
-    /*padding: 20px;*/
-    /*justify-content: space-around;*/
-    /*margin-top: 59px;*/
+.pagination2 {
+    display: inline-block;
+    margin-left: 650px;
+}
+
+.buttonPagination {
+    border-radius: 8px;
+    border: none;
 }
 
 .myClass2 {
     display: flex;
-    /*margin-left: 20px;*/
-    /*flex-wrap: wrap;*/
-    /*padding: 20px;*/
-    /*justify-content: space-around;*/
-    margin-top: 59px;
+    margin-top: 67px;
+}
+
+.myClass3 {
+    margin-left: 110px;
+    margin-top: 89px;
 }
 
 .padding {
@@ -22,10 +24,6 @@
 
 .formSearch {
     display: flex;
-
-    /*vertical-align: top;*/
-    /*position: relative;*/
-    /*box-sizing: border-box;*/
 }
 
 .inputForSearch {
@@ -113,7 +111,7 @@
     width: 100%;
     height: 160px;
     padding: 30px;
-    font-size: 18px;
+    font-size: 14px;
     text-decoration: none;
 }
 

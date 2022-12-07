@@ -90,10 +90,14 @@ const CartPage = () => {
         return (
             <div>
                 <Top>
-                    <TopButton onClick={backToShop}>Continue Shopping</TopButton>
+                    <button className="topBtn" onClick={backToShop}>Продовжити покупки</button>
                 </Top>
-                <h1>Сейчас хорошее время чтобы что то выбрать</h1>
-                <p>Ваша корзина пуста</p>
+                <Top>
+                    <h1>Зараз гарний час щоб щось вибрати</h1>
+                </Top>
+                <Top>
+                    <h4>Ваш кошик порожній</h4>
+                </Top>
             </div>
         )
     }

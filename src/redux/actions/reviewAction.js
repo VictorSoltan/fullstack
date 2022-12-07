@@ -14,7 +14,7 @@ export const createProductReview = (productId, comment) => async (
                 'authorization': localStorage.getItem("refresh_token") + " " + localStorage.getItem("access_token")}
         };
 
-        await axios.post(`http://localhost:5000/api/reviews/${productId}`, comment, config);
+        await axios.post(`https://new-test-shop-app.herokuapp.com/api/reviews/${productId}`, comment, config);
 
         dispatch ({
             type: 'PRODUCT_CREATE_REVIEW_SUCCESS',

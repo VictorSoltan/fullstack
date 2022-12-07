@@ -20,8 +20,6 @@ const Sliders = ({lastProducts}) => {
     const settings = {
         // centerPadding: "60px",
         dots: false,
-        fontsize: '14px',
-        // textdecoration: none,
         infinite: false,
         speed: 600,
         slidesToShow: 6,
@@ -33,7 +31,7 @@ const Sliders = ({lastProducts}) => {
 
     const style = {
         width: '100%',
-        height: '320px',
+        height: '270px',
     };
 
     return (
@@ -43,13 +41,12 @@ const Sliders = ({lastProducts}) => {
                     lastProducts.map((value) => {
                         return (
                             <Card style={style}>
-                                <NavLink to={{pathname: '/devices/' + value.id}}>
+                                <NavLink className="NavLink" to={{pathname: '/devices/' + value.id}}>
                                     <div className="styleSlider">
                                         <img src={value.image} alt="img" className="imageSlider"
                                              crossOrigin="anonymous"/>
-                                        {/*<Card.Img variant="top" src="http://localhost:5000/static/image-1659789848904.jpg"/>*/}
                                         {value.name}
-                                        <p>{value.price}</p>
+                                        <p>{value.price} uah</p>
                                     </div>
                                 </NavLink>
                                 {/*<ProductBuy key={value.date} device={value}/>*/}

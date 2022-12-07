@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-    baseURL: 'https://shop-with-products.herokuapp.com'
+    baseURL: 'https://new-test-shop-app.herokuapp.com'
 });
 
 const getUsers = async () => await axiosInstance.get('/users');

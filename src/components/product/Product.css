@@ -2,6 +2,7 @@
     flex: 1;
     margin: 5px;
     display: flex;
+    flex-direction: column;
     width: 33.33%;
     align-items: center;
     justify-content: center;
@@ -10,6 +11,7 @@
     position: relative;
     max-height: 400px;
 }
+
 
 .productInfo {
     width: 100%;
@@ -23,4 +25,15 @@
     justify-content: space-between;
     transition: all 0.5s ease;
     cursor: pointer;
+}
+
+.rating {
+    display: flex;
+    width: 12px;
+    height: 7px;
+}
+
+.ratingStars {
+    display: flex;
+
 }

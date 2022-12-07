@@ -1,10 +1,11 @@
 import axios from "axios";
 
-export const registration = async (email, password) => {
+export const registration = async (email, password, nick_name) => {
     try {
         const response = axios.post(`http://localhost:5000/users/registration`, {
             email,
-            password
+            password,
+            nick_name
         })
         console.log(response);
     } catch (e) {
@@ -18,7 +19,7 @@ export const login = (value) => async (dispatch) => {
             type: "USER_LOGIN_REQUEST",
         })
 
-        const {data} = await axios.post('http://localhost:5000/auth/login', value);
+        const {data} = await axios.post('https://new-test-shop-app.herokuapp.com/auth/login', value);
         dispatch({
             type: 'USER_LOGIN_SUCCESS',
             payload: data,

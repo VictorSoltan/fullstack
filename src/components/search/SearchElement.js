@@ -8,10 +8,8 @@ import {Pagination} from "../pagination/Pagination";
 import {useDispatch, useSelector} from "react-redux";
 import styled from "styled-components";
 import {mobile} from "../../responsive";
-import {getDevice} from "../../services/axios/device.service";
 import qs from "qs";
 import {setCategory, setSortBy, setTypeDevice} from "../../redux/actions/filtersAction";
-import {ProductBuy} from "../productBuy/ProductBuy";
 import {Footer} from "../footer/Footer";
 import {SearchRenderElement} from "./SearchRenderElement";
 
@@ -21,7 +19,7 @@ const SearchElement = () => {
 
     useEffect(() => {
         const getData = async () => {
-            const result = await axios.get(`http://localhost:5000/devices/search/${name}`
+            const result = await axios.get(`https://new-test-shop-app.herokuapp.com/devices/search/${name}`
             );
             setSearchProduct(result.data);
         };

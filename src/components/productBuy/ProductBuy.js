@@ -23,7 +23,7 @@ const ProductBuy = ({device}) => {
     return (
         <div className="game-buy">
             <span>{device.price} uah</span>
-            <Button type={isItemInCart ? 'secondary' : 'primary'} onClick={handleClick}>
+            <Button style={{"font-size": "10px"}} type={isItemInCart ? 'secondary' : 'primary'} onClick={handleClick}>
                 {isItemInCart ? "Убрать из корзины" : "В корзину"}
             </Button>
         </div>
