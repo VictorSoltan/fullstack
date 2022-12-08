@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const instance = axios.create({
-    baseURL: 'https://electronic-shop-project.herokuapp.com/',
+    baseURL: 'https://urlsession-backend.onrender.com/',
     headers: {
         'authorization': localStorage.getItem("refresh_token") + " " + localStorage.getItem("access_token"),
         "Accept": "application/json",
