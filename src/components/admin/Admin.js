@@ -20,7 +20,7 @@ const Admin = () => {
 
         formData.append('image', data.image[0]);
 
-        const res = await fetch('http://localhost:5000/devices', {
+        const res = await fetch('https://urlsession-backend.onrender.com/devices', {
             method: "POST",
             body: formData
         }).then(res => res.json())

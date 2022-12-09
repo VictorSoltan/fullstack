@@ -19,7 +19,7 @@ const DeviceForm = () => {
             const data = new FormData()
             data.append('image', img)
 
-            await axios.post('https://shop-with-products.herokuapp.com/devices', data, {
+            await axios.post('https://urlsession-backend.onrender.com/devices', data, {
                 headers: {
                     'content-type': 'mulpipart/form-data'
                 }

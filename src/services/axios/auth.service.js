@@ -2,7 +2,7 @@ const axios = require("axios");
 
 export const login = async (data) => {
     try {
-        const response = await axios.post('https://new-test-shop-app.herokuapp.com/auth/login', data);
+        const response = await axios.post('https://urlsession-backend.onrender.com/auth/login', data);
 
         return response.data;
     } catch (e) {
@@ -12,7 +12,7 @@ export const login = async (data) => {
 
 export const logout = async () => {
     try {
-        const response = await axios.post('https://new-test-shop-app.herokuapp.com/auth/logout', {}, {
+        const response = await axios.post('https://urlsession-backend.onrender.com/auth/logout', {}, {
             headers: {
                 'Authorization': localStorage.getItem('access_token')
             }

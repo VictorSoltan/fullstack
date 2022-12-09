@@ -3,7 +3,7 @@ import {NavLink, Outlet} from "react-router-dom";
 import {login, registration} from "../../redux/actions/authActions";
 import {CartBlock} from "../cartBlock/CartBlock";
 import {Container, Navbar, Nav, Modal, Form, Button, Row} from 'react-bootstrap';
-import logo from '../typeBar/222.png';
+
 import {useDispatch} from "react-redux";
 import './Header.css'
 import Input from "../input/Input";
@@ -58,11 +58,11 @@ const Header = () => {
                     expand="lg" bg="dark" variant="dark" fixed="top">
                 <Container>
                     <Navbar.Brand href="/">
-                        <img src={logo}
-                             height="30"
-                             width="30"
-                             className="d-inline-block align-top"
-                             alt="Logo"/>
+                        {/*<img src={logo}*/}
+                        {/*     height="30"*/}
+                        {/*     width="30"*/}
+                        {/*     className="d-inline-block align-top"*/}
+                        {/*     alt="Logo"/>*/}
                     </Navbar.Brand>
 
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" className="coloring"/>

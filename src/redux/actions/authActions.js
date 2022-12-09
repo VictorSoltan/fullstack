@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const registration = async (email, password, nick_name) => {
     try {
-        const response = axios.post(`http://localhost:5000/users/registration`, {
+        const response = axios.post(`https://urlsession-backend.onrender.com/users/registration`, {
             email,
             password,
             nick_name
@@ -19,7 +19,7 @@ export const login = (value) => async (dispatch) => {
             type: "USER_LOGIN_REQUEST",
         })
 
-        const {data} = await axios.post('https://new-test-shop-app.herokuapp.com/auth/login', value);
+        const {data} = await axios.post('https://urlsession-backend.onrender.com/auth/login', value);
         dispatch({
             type: 'USER_LOGIN_SUCCESS',
             payload: data,

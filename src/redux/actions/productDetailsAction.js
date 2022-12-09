@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const listProductsDetails = (_id) => async (dispatch) => {
     try {
-        const {data} = await axios.get(`https://new-test-shop-app.herokuapp.com/devices/${_id}`);
+        const {data} = await axios.get(`https://urlsession-backend.onrender.com/devices/${_id}`);
 
         dispatch({
             type: 'PRODUCT_DETAILS_SUCCESS',

@@ -4,7 +4,6 @@ import axios from "axios";
 import {Sort} from "../sorting/Sort";
 import {FindByBrand} from "../categories/FindByBrand";
 import {FindByCategory} from "../categories/FindByCategory";
-import {Pagination} from "../pagination/Pagination";
 import {useDispatch, useSelector} from "react-redux";
 import styled from "styled-components";
 import {mobile} from "../../responsive";
@@ -19,7 +18,7 @@ const SearchElement = () => {
 
     useEffect(() => {
         const getData = async () => {
-            const result = await axios.get(`https://new-test-shop-app.herokuapp.com/devices/search/${name}`
+            const result = await axios.get(`https://urlsession-backend.onrender.com/devices/search/${name}`
             );
             setSearchProduct(result.data);
         };
