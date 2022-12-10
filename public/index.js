@@ -1,19 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import reportWebVitals from './../src/reportWebVitals';
+import App from './../src/App';
+import reportWebVitals from './reportWebVitals';
 import {Provider} from "react-redux";
-import {store} from "./redux/store";
+import {store} from "../src/redux/store";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 ReactDOM.render(
     <React.StrictMode>
-            <Provider store={store}>
-                <App/>
-            </Provider>
+        <Provider store={store}>
+            <App/>
+        </Provider>
     </React.StrictMode>,
     document.getElementById('root')
 );
