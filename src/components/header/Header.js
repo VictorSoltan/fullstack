@@ -88,6 +88,7 @@ const Header = () => {
                             <Modal.Title>Log in</Modal.Title>
                         </Modal.Header>
 
+
                         <Modal.Body>
                             <Form>
                                 <Form.Group controlId="fromBasicEmail">
